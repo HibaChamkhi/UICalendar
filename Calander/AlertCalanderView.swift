@@ -12,7 +12,7 @@ struct AlertCalanderView: View {
     @State var dob = Date()
     @Binding var showsDatePicker : Bool
     @Binding var selectedDate: Date?
-
+    
     var body: some View{
         ZStack (alignment: Alignment(horizontal: .trailing, vertical: .top)) {
             VStack {
@@ -25,26 +25,27 @@ struct AlertCalanderView: View {
                             selectedDate = dob
                         } label: {
                             Text("Save")
+                                .foregroundColor(.pink)
                         }
                         Spacer()
                         Button {
                             showsDatePicker = false
                         } label: {
                             Text("Cancel")
+                                .foregroundColor(.pink)
                         }
                     }
                     .padding(.bottom)
                 }
             }
             .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.3)
-               .padding(.vertical, 25)
-               .padding(.horizontal, 30)
-               .background(Color.white)
-               .cornerRadius(25)
-               .scaleEffect(showsDatePicker ? 1.0 : 0.3)
-               .animation(.spring(response: 0.5, dampingFraction: 0.75, blendDuration: 0))
-               .opacity(showsDatePicker ? 1.0 : 0.0)
-               .offset(y: showsDatePicker ? 0 : UIScreen.main.bounds.height)
+            .padding(.vertical, 25)
+            .padding(.horizontal, 30)
+            .background(Color.white)
+            .cornerRadius(25)
+            .scaleEffect(showsDatePicker ? 1.0 : 0.3)
+            .opacity(showsDatePicker ? 1.0 : 0.0)
+            .offset(y: showsDatePicker ? 0 : UIScreen.main.bounds.height)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .cornerRadius(12)
